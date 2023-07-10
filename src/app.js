@@ -8,6 +8,4 @@ app.use(cors());
 app.use(express.json());
 app.use(router)
 
-//teste aqui
-
 app.listen(process.env.PORT || 5000);
