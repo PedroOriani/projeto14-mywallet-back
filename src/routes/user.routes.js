@@ -6,8 +6,8 @@ import { validateAuth } from "../middlewares/validateAuth";
 
 const userRouter = Router();
 
-userRouter.post('/sign-up', validateSchema(schemaUser) ,singup)
-userRouter.post('/sign-in', signin)
-userRouter.post('/userInfos', validateAuth ,getUser)
+userRouter.post('/sign-up', validateSchema(schemaUser) ,singup);
+userRouter.post('/sign-in', signin);
+userRouter.get('/userInfos', validateAuth ,getUser);
 
 export default userRouter;
