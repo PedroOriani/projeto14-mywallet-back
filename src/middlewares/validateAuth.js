@@ -2,15 +2,15 @@ import { db } from "mongodb";
 
 export async function validateAuth(res, res, next) {
     const { authorizarion } = req.headers;
-    const token = authorizarion?.replace("Beare ", "")
+    const token = authorizarion?.replace("Bearer ", "")
 
     if (!token) return res.sendStatus(401)
 
     try{
-        const sessao = await db.collection("sessao").findOne({token})
-        if (!sessao) return res.sendStatus(401)
+        const session = await db.collection("session").findOne({token})
+        if (!session) return res.sendStatus(401)
 
-        res.locals.sessao = sessao
+        res.locals.session = session
 
         next()
 
