@@ -10,4 +10,4 @@ app.use(router)
 
 //teste aqui
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT || 5000);
