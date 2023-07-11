@@ -8,6 +8,6 @@ const transactionRouter = Router();
 
 transactionRouter.use(validateAuth)
 transactionRouter.post('/transaction' , validateSchema(schemaTransactions) ,addTransaction)
-transactionRouter.get('/transaction', getTransactions)
+transactionRouter.get('/transactions', getTransactions)
 
 export default transactionRouter;
