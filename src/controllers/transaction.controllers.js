@@ -13,8 +13,10 @@ export async function addTransaction(req, res){
 }
 
 export async function getTransactions(req, res){
+    const { email } = req.body
+
     try{
-        const transactions = await db.collection('transactions').find().toArray();
+        const transactions = await db.collection('transactions').find({ email }).toArray();
         res.send(transactions)
     }catch (err){
         res.status(500).send(err.message);
