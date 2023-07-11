@@ -9,6 +9,9 @@ export async function singup(req, res){
     const hash = bcrypt.hashSync(password, 10);
 
     try{
+        const emailRp = await db.collection('users').findOne({ email });
+        if (emailRp) return res.status(409).send('Esse e-mail ja está cadastrado');
+
         await db.collection('users').insertOne({ name, email, password: hash });
         res.sendStatus(201);
     }catch (err) {
