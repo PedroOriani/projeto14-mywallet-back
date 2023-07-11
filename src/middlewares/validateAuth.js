@@ -1,6 +1,6 @@
 import { db } from "mongodb";
 
-export async function validateAuth(res, res, next) {
+export async function validateAuth(req, res, next) {
     const { authorizarion } = req.headers;
     const token = authorizarion?.replace("Bearer ", "")
 
