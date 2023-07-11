@@ -16,7 +16,7 @@ export async function getTransactions(req, res){
     const { id } = req.headers.id;
 
     try{
-        const transactions = await db.collection('transactions').find({ id: id }).toArray();
+        const transactions = await db.collection('transactions').find( id ).toArray();
         res.send(transactions)
     }catch (err){
         res.status(500).send(err.message);
