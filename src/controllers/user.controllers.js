@@ -1,7 +1,7 @@
-import { db } from "./database/database.connection.js";
 import bcrypt from "bcrypt";
 import { v4 as uuid } from "uuid";
 import dayjs from "dayjs"
+import { db } from "../database/database.connection.js";
 
 export async function singup(req, res){
     const { name, email, password } = req.body;

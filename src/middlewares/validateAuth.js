@@ -1,4 +1,5 @@
-import { db } from "mongodb";
+import { db } from "../database/database.connection.js";
+
 
 export async function validateAuth(req, res, next) {
     const { authorizarion } = req.headers;
