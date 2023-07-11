@@ -43,10 +43,10 @@ export async function getUser(req, res){
     const day = dayjs().format('DD/MM')
 
     try{
-        const user = await db.collection('users').findOne({ _id: session.idUser });
+        const user = await db.collection('users').findOne({ _id: session.userId });
 
         delete user.password;
-        res.send({_id: user.id, name: user.name, email: user.email, day:day})
+        res.send({_id: user.userID, name: user.name, email: user.email, day:day})
     }catch (err){
         res.status(500).send(err.message);
     }
