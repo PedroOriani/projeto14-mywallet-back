@@ -51,3 +51,17 @@ export async function getUser(req, res){
         res.status(500).send(err.message);
     }
 }
+
+export async function signOut(req, res){
+    const { authorization } = req.headers;
+    const token = authorization?.replace("Bearer ", "")
+
+    if (!token) return res.sendStatus(401)
+    
+    try{
+        const deleted = await db.collection('sessions').deleteOne({ token });
+        res.send({deletedCount: deleted.deletedCount})
+    }catch (err){
+        res.status(500).send(err.message)
+    }
+}
