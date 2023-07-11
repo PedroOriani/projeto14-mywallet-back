@@ -9,7 +9,7 @@ try{
     await mongoClient.connect();
     console.log("mongodb conectado")
 }catch(err){
-    resizeBy.status(500).send(err.message);
+    res.status(500).send(err.message);
 }
 
 export const db = mongoClient.db();
