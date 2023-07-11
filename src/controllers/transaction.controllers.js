@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import { db } from "../database/database.connection.js";
 
 
@@ -16,7 +17,7 @@ export async function getTransactions(req, res){
     const { id } = req.headers.id;
 
     try{
-        const transactions = await db.collection('transactions').find({ _id: ObjectId(id) }).toArray();
+        const transactions = await db.collection('transactions').find({ _id: new ObjectId(id) }).toArray();
         res.send(transactions)
     }catch (err){
         res.status(500).send(err.message);
