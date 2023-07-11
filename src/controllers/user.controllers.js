@@ -49,7 +49,7 @@ export async function getUser(req, res){
         const user = await db.collection('users').findOne({ _id: session.userId });
 
         delete user.password;
-        res.send({_id: user._id, name: user.name, email: user.email, day:day})
+        res.send({user: user, name: user.name, email: user.email, day:day})
     }catch (err){
         res.status(500).send(err.message);
     }
